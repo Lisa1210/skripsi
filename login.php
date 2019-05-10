@@ -1,3 +1,13 @@
+<?php 
+session_start();
+error_reporting();
+
+$koneksi = mysqli_connect("localhost", "root","","Simkari");
+if (mysqli_connect_errno()){
+    echo "koneksi database gagal:".mysqli_connect_error();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +30,8 @@
             <div class="col-md-12">
                 <br /><br />
                 <h2> Simkari Admin : Login</h2>
-               
-                <h5>( Login yourself to get access )</h5>
-                 <br />
+
+
             </div>
         </div>
 
@@ -32,29 +41,23 @@
                   <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                        <strong>   Enter Details To Login </strong>  
+                        <strong>   Masukkan username & password </strong>  
                             </div>
                             <div class="panel-body">
-                                <form role="form">
+                                <form role="form" method="POST" action=""> <!-- tambahi actionnya habis dari login terhubung kemana --> 
                                        <br />
                                      <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" class="form-control" placeholder="Your Username " />
+                                            <input type="text" name = "username"class="form-control" placeholder="Your Username " />
                                         </div>
-                                                                              <div class="form-group input-group">
+                                        
+                                        <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" class="form-control"  placeholder="Your Password" />
+                                            <input type="password" name= "pass"class="form-control"  placeholder="Your Password" />
                                         </div>
-                                    <div class="form-group">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" /> Remember me
-                                            </label>
-                                            <span class="pull-right">
-                                                   <a href="#" >Forget password ? </a> 
-                                            </span>
-                                        </div>
-                                     
-                                     <a href="index.html" class="btn btn-primary ">Login Now</a>
+                                    
+                                     <input type="submit" name="login" value="login"class="btn btn-primary ">
+                                    
                                     <hr />
                               
                                     </form>
@@ -84,3 +87,7 @@
    
 </body>
 </html>
+<?php
+
+
+?>
