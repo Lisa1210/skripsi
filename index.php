@@ -35,45 +35,53 @@ if (mysqli_connect_errno()){
                 </button>
                 <a class="navbar-brand" href="index.php ">Simkari admin</a> 
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Last access : April 2019 &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        
-
-<
-            <div class="dropdown" style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;">
-              <button class="btn btn-danger square-btn-adjust" type="button" id="dropdownMenuButton" 
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               LAPORAN 
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-               
-                <li>
-                <a data-toggle=”dropdown” data-target=”#” href=”#”>
-                     <span class=”caret”></span>
-                </a>
-                <ul class=”dropdown-menu”>
-                    <li><a href=”#”>Laporan Tersangka</a></li>
-                    <li><a href=”#”>Laporan Jaksa</a></li>
-                    <li><a href=”#”>Laporan Pra Penuntut</a></li>
-                    <li><a href=”#”>Laporan Penuntutan</a></li>
-                    <li><a href=”#”>Laporan Barang Bukti</a></li>
-                    <li><a href=”#”>Laporan Penahanan</a></li>
-                    <li><a href=”#”>Laporan  Upaya Hukum</a></li>
-                    <li><a href=”#”>Laporan  Esekusi</a></li>
-                    <li><a href=”#”>Laporan  hasil dinas</a></li>
-                </ul>
-            </li>
-              </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" style="color: white; margin: 5px 10px;  font-size: 16px;" class="dropdown-toggle btn btn-danger square-btn-adjust " data-toggle="dropdown">LAPORAN <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Tersangka</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Jaksa</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Pra Penuntut</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Penuntutan</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Barang Bukti</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Penahanan</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan  Upaya Hukum</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan  Esekusi</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan  hasil dinas</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="login.php" style="color: white; margin: 5px 10px;  font-size: 16px;" class="btn btn-danger square-btn-adjust">LOGOUT</a>
+					</li>
+				<!--
+					<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+					<div class="dropdown" >
+						<button class="btn btn-danger square-btn-adjust" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAPORAN</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li>
+								<a data-toggle="dropdown" data-target="#" href="#">
+									 <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Laporan Tersangka</a></li>
+									<li><a href="#">Laporan Jaksa</a></li>
+									<li><a href="#">Laporan Pra Penuntut</a></li>
+									<li><a href="#">Laporan Penuntutan</a></li>
+									<li><a href="#">Laporan Barang Bukti</a></li>
+									<li><a href="#">Laporan Penahanan</a></li>
+									<li><a href="#">Laporan  Upaya Hukum</a></li>
+									<li><a href="#">Laporan  Esekusi</a></li>
+									<li><a href="#">Laporan  hasil dinas</a></li>
+								</ul>
+							</li>
+						</div>
+					</div>
+						Last access : April 2019 &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+					</div>
+				-->
+				</ul>
+			</div>
 
         </nav>   
            <!-- /. NAV TOP  -->
