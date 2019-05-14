@@ -1,9 +1,11 @@
+
+
 <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             DATA TERSANGKA
+                              DATA TERSANGKA
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -43,12 +45,26 @@
 
                                         <td>
                                             <a href=""class = "btn btn-info">ubah</a>
-                                            <a href=""class = "btn btn-danger">hapus</a>
+                                            <a href=""class = "btn btn-danger">hapus</a>   
+                                                
                                         </td>
                                     </tr>
                                      
 <?php } ?>
+
+
+
 </tbody></table>
+
+<a href="?page=tersangka&aksi=tambah" class="btn btn-success"
+style="color: white; margin: 5px 8px;  font-size: 14px;"><i
+class ="fa fa plus"></i>+TAMBAH DATA </a>
+<a href="./laporan/laporan_tersangka_exel.php "class="btn btn-default"
+style="margin: 5px 8px;  font-size: 14px;"><i
+class ="fa fa plus"></i>Export To Excel </a>
+<a href="./laporan/laporan_tersangka_pdf.php "class="btn btn-default"
+style="margin: 5px 8px;  font-size: 14px;"><i
+class ="fa fa plus"></i>Export To pdf </a>
 </div>
 </div>
 </div>

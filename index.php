@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 $koneksi = mysqli_connect("localhost", "root","","Simkari");
 if (mysqli_connect_errno()){
     echo "koneksi database gagal:".mysqli_connect_error();
@@ -38,7 +40,7 @@ if (mysqli_connect_errno()){
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a href="#" style="color: white; margin: 5px 10px;  font-size: 16px;" class="dropdown-toggle btn btn-danger square-btn-adjust " data-toggle="dropdown">LAPORAN <span class="caret"></span></a>
+						<a href="#" style="color: white; margin: 5px 8px;  font-size: 14px;" class="dropdown-toggle btn btn-danger square-btn-adjust " data-toggle="dropdown">LAPORAN <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Tersangka</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Laporan Jaksa</a></li>
@@ -52,7 +54,7 @@ if (mysqli_connect_errno()){
 						</ul>
 					</li>
 					<li>
-						<a href="login.php" style="color: white; margin: 5px 10px;  font-size: 16px;" class="btn btn-danger square-btn-adjust">LOGOUT</a>
+						<a href="login.php" style="color: white; margin: 5px 8px;  font-size: 14px;" class="btn btn-danger square-btn-adjust">LOGOUT</a>
 					</li>
 				<!--
 					<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
@@ -94,38 +96,38 @@ if (mysqli_connect_errno()){
 				
 					
                     <li>
-                        <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Home</a>
+                        <a  href="index.php"><i class="fa fa-dashboard fa-2x"></i> Home</a>
                     </li>
                       <li>
-                        <a  href="?page=Tersangka"><i class="fa fa-desktop fa-3x"></i>  Data Tersangka</a>
+                        <a  href="?page=Tersangka"><i class="fa fa-desktop fa-2x"></i>  Data Tersangka</a>
                     </li>
 
                     <li>
-                        <a  href="?page=Jaksa"><i class="fa fa-desktop fa-3x"></i>  Data Jaksa</a>
+                        <a  href="?page=Jaksa"><i class="fa fa-desktop fa-2x"></i>  Data Jaksa</a>
                     </li>
 
                     <li>
-                        <a  href="?page=Pra Penuntut"><i class="fa fa-desktop fa-3x"></i>  Data Pra Penuntut</a>
-                    </li>
-
-                     <li>
-                        <a  href="?page=Penuntutan"><i class="fa fa-desktop fa-3x"></i>  Data Penuntutan</a>
-                    </li>
-                     <li>
-                        <a  href="?page=BarangBukti"><i class="fa fa-desktop fa-3x"></i>  Data Barang Bukti</a>
-                    </li>
-                    <li>
-                        <a  href="?page=Penahanan"><i class="fa fa-desktop fa-3x"></i>  Data Penahanan</a>
+                        <a  href="?page=Pra Penuntut"><i class="fa fa-desktop fa-2x"></i>  Data Pra Penuntut</a>
                     </li>
 
                      <li>
-                        <a  href="?page=upayahukum"><i class="fa fa-desktop fa-3x"></i>  Data Upaya Hukum</a>
+                        <a  href="?page=Penuntutan"><i class="fa fa-desktop fa-2x"></i>  Data Penuntutan</a>
+                    </li>
+                     <li>
+                        <a  href="?page=BarangBukti"><i class="fa fa-desktop fa-2x"></i>  Data Barang Bukti</a>
                     </li>
                     <li>
-                        <a  href="?page=eksekusi"><i class="fa fa-desktop fa-3x"></i>  Data Eksekusi</a>
+                        <a  href="?page=Penahanan"><i class="fa fa-desktop fa-2x"></i>  Data Penahanan</a>
+                    </li>
+
+                     <li>
+                        <a  href="?page=upayahukum"><i class="fa fa-desktop fa-2x"></i>  Data Upaya Hukum</a>
                     </li>
                     <li>
-                        <a  href="?page=hasildinas"><i class="fa fa-desktop fa-3x"></i>  Data Hasil Dinas</a>
+                        <a  href="?page=eksekusi"><i class="fa fa-desktop fa-2x"></i>  Data Eksekusi</a>
+                    </li>
+                    <li>
+                        <a  href="?page=hasildinas"><i class="fa fa-desktop fa-2x"></i>  Data Hasil Dinas</a>
                     </li>   
 
                                </ul>
@@ -135,7 +137,7 @@ if (mysqli_connect_errno()){
                       </li>  
                     				
 					<li  >
-                        <a   href="login.php"><i class="fa fa-bolt fa-3x"></i> Login</a>
+                        <a   href="login.php"><i class="fa fa-bolt fa-2x"></i> Login</a>
                     </li>	              
                     
                                  </ul>
@@ -156,9 +158,12 @@ if (mysqli_connect_errno()){
                     if ($page == "Tersangka") {
                     	if ($aksi=="") {
                     		include "page/Tersangka/Tersangka.php";
-                    	
-                 }
-                }  elseif ($page == "Penuntutan") {
+                        }if ($aksi== "tambah")
+
+                         { include "page/Tersangka/tambah.php"; }
+
+
+                        }elseif ($page == "Penuntutan") {
                         if ($aksi=="") {
                             include "page/Penuntutan/Penuntutan.php";
                         }
@@ -233,3 +238,7 @@ if (mysqli_connect_errno()){
    
 </body>
 </html>
+
+}
+}
+
