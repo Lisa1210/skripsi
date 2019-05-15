@@ -5,6 +5,14 @@ $koneksi = mysqli_connect("localhost", "root","","Simkari");
 if (mysqli_connect_errno()){
     echo "koneksi database gagal:".mysqli_connect_error();
 }
+
+if(!isset($_SESSION['login'])){
+    header('location: login.php');
+}
+if(isset($_GET['logout'])){
+    session_destroy();
+    ?><script>alert('SUKSES\n\nAnda berhasil logout.'); location.href='index.php';</script><?php
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +26,7 @@ if (mysqli_connect_errno()){
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css" />
      
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -54,7 +63,7 @@ if (mysqli_connect_errno()){
 						</ul>
 					</li>
 					<li>
-						<a href="login.php" style="color: white; margin: 5px 8px;  font-size: 14px;" class="btn btn-danger square-btn-adjust">LOGOUT</a>
+						<a href="?logout" style="color: white; margin: 5px 8px;  font-size: 14px;" class="btn btn-danger square-btn-adjust">LOGOUT</a>
 					</li>
 				<!--
 					<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
@@ -158,9 +167,13 @@ if (mysqli_connect_errno()){
                     if ($page == "Tersangka") {
                     	if ($aksi=="") {
                     		include "page/Tersangka/Tersangka.php";
-                        }if ($aksi== "tambah")
-
-                         { include "page/Tersangka/tambah.php"; }
+                        }if ($aksi== "tambah"){ 
+                            include "page/Tersangka/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/Tersangka/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/Tersangka/hapus.php"; 
+                        }
 
 
                         }elseif ($page == "Penuntutan") {
@@ -225,12 +238,17 @@ if (mysqli_connect_errno()){
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.js"></script>
     
-   <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
                 $('#dataTables-example').dataTable();
+                $('#datetimepicker1').datetimepicker({
+                    format:'DD-MM-YYYY'
+                });
             });
     </script>
 
@@ -238,7 +256,3 @@ if (mysqli_connect_errno()){
    
 </body>
 </html>
-
-}
-}
-

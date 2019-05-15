@@ -27,8 +27,9 @@
                                    <tbody>
 <?php 
                                         $sql = mysqli_query ($koneksi,"select * from tersangka");
+                                        $No = 1;
                                         while ($data=mysqli_fetch_array($sql)) {
-                                        $No = 1;  
+                                          
                                 
                                         ?>
                                     <tr>
@@ -44,8 +45,8 @@
                                     
 
                                         <td>
-                                            <a href=""class = "btn btn-info">ubah</a>
-                                            <a href=""class = "btn btn-danger">hapus</a>   
+                                            <a href="?page=Tersangka&aksi=ubah&id=<?php echo $data['id_tersangka']; ?>" class = "btn btn-info">ubah</a>
+                                            <a href="?page=Tersangka&aksi=hapus&id=<?php echo $data['id_tersangka']; ?>" class = "btn btn-danger">hapus</a>   
                                                 
                                         </td>
                                     </tr>
@@ -56,9 +57,9 @@
 
 </tbody></table>
 
-<a href="?page=tersangka&aksi=tambah" class="btn btn-success"
+<a href="?page=Tersangka&aksi=tambah" class="btn btn-success"
 style="color: white; margin: 5px 8px;  font-size: 14px;"><i
-class ="fa fa plus"></i>+TAMBAH DATA </a>
+class ="fa fa-plus"></i> TAMBAH DATA </a>
 <a href="./laporan/laporan_tersangka_exel.php "class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
 class ="fa fa plus"></i>Export To Excel </a>

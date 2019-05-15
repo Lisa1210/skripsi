@@ -1,13 +1,29 @@
 <?php 
-ob_start();
 session_start();
-error_reporting();
 
 $koneksi = mysqli_connect("localhost", "root","","Simkari");
 if (mysqli_connect_errno()){
     echo "koneksi database gagal:".mysqli_connect_error();
 }
 
+if(isset($_SESSION['login'])){
+    header('location: index.php');
+}
+if(isset($_POST['login'])){
+  $username=$_POST['username'];
+  $pass=md5($_POST['pass']);
+  $q=mysqli_query($koneksi,"select * from user where username='$username' and password='$pass'");
+  if(mysqli_num_rows($q)>0){
+    $h=mysqli_fetch_array($q);
+    $_SESSION['login']=true;
+    $_SESSION['username']=$h['username'];
+    $_SESSION['level']=$h['level'];
+    ?><script>alert('SUKSES\n\nSelamat Datang <?php echo $_SESSION['level']; ?>');</script><?php
+  }else{
+    ?><script>alert('ERROR!\n\nUsername atau Password salah, silahkan ulangi lagi.');</script><?php
+  }
+  ?><script>location.href='index.php';</script><?php
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +31,7 @@ if (mysqli_connect_errno()){
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> index</title>
+  <title> Login</title>
   <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -89,29 +105,3 @@ if (mysqli_connect_errno()){
    
 </body>
 </html>
-
-         <?php 
-         if (isset($_POST['login']))
-            $username = $_POST['username']; 
-         $pass = $_POST['pass']; 
-
-        $sql = mysqli_query ($koneksi,"select * from user WHERE username='$username' and password='$pass'");
-                                        while ($data=mysqli_fetch_array($sql));
-         
-           $ketemu = $sql->num_rows; 
-           if ($ketemu >= 1) {
-            session_start(); 
-           
-            $_SESSION['admin'] = $data['id'];
-             header("location:index.php"); 
-           
-             } else 
-             
-              ?>
-              <script type="text/javascript">
-              alert ("login gagal username dan password anda salah.... SILAHKAN COBA LAGI");
-
-              </script>
-
-              <?php
-
