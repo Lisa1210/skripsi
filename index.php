@@ -173,48 +173,106 @@ if(isset($_GET['logout'])){
                             include "page/Tersangka/ubah.php"; 
                         }if ($aksi== "hapus"){ 
                             include "page/Tersangka/hapus.php"; 
+                        }if ($aksi== "Laporan Tersangka"){ 
+                            include "page/Tersangka/Laporan Tersangka.php"; 
                         }
 
 
                         }elseif ($page == "Penuntutan") {
                         if ($aksi=="") {
                             include "page/Penuntutan/Penuntutan.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/Penuntutan/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/Penuntutan/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/Penuntutan/hapus.php"; 
+                        
                         }
                     
                     }  elseif ($page == "eksekusi") {
                         if ($aksi=="") {
                             include "page/eksekusi/eksekusi.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/eksekusi/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/eksekusi/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/eksekusi/hapus.php"; 
+                        
                         }
                     
                     }elseif ($page == "Jaksa") {
                         if ($aksi=="") {
                             include "page/Jaksa/Jaksa.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/Jaksa/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/Jaksa/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/Jaksa/hapus.php"; 
+                        
                     	}
                     
                     } elseif ($page == "BarangBukti") {
                         if ($aksi=="") {
                             include "page/BarangBukti/BarangBukti.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/BarangBukti/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/BarangBukti/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/BarangBukti/hapus.php"; 
+                        
                         }
                     
                     } elseif ($page == "Penahanan") {
                         if ($aksi=="") {
                             include "page/Penahanan/Penahanan.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/Penahanan/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/Penahanan/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/Penahanan/hapus.php"; 
+                        
                         }
                     
                     }elseif ($page == "upayahukum") {
                         if ($aksi=="") {
                             include "page/upayahukum/upayahukum.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/upayahukum/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/upayahukum/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/upayahukum/hapus.php"; 
+                        
                         }
                     
                     }elseif ($page == "hasildinas") {
                         if ($aksi=="") {
                             include "page/hasildinas/hasildinas.php";
+                        }if ($aksi== "tambah"){ 
+                            include "page/hasildinas/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/hasildinas/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/hasildinas/hapus.php"; 
+                        
                         }
                     
                     }elseif ($page == "Pra Penuntut") {
                      if ($aksi=="") {
                             include "page/Pra Penuntut/Pra Penuntut.php";
-                    }
+                    }if ($aksi== "tambah"){ 
+                            include "page/Pra Penuntut/tambah.php"; 
+                        }if ($aksi== "ubah"){ 
+                            include "page/Pra Penuntut/ubah.php"; 
+                        }if ($aksi== "hapus"){ 
+                            include "page/Pra Penuntut/hapus.php"; 
+                        
+                        }
               } 
                     ?>
                        

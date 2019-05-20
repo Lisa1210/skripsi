@@ -78,5 +78,5 @@ if(isset($_GET['id'])){
             <input type="text" id="nama" name="pasal" class="form-control" value="<?php echo $h['pasal_tersangka']; ?>" />
         </div>
         <button type="submit" name="ubah" class="btn btn-primary mb-2">Simpan</button>
-        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Tersangka'">Batal</button>
+        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=BarangBukti'">Batal</button>
 	</form>

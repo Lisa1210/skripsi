@@ -20,7 +20,7 @@ if(isset($_POST['tambah'])){
 }
 ?>
  
-	<h2>DATA TERSANGKA</h2>
+	<h2>DATA PRA PENUNTUT</h2>
 	<br/>
 	<form method="POST" action="">
 		<div class="form-group">
@@ -41,15 +41,7 @@ if(isset($_POST['tambah'])){
         </div>
         <div class="form-group">
             <label for="nama">Agama</label>
-            <select name="agama" id="agama" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="Islam">Islam</option>
-                <option value="Kristen">Kristen Protestan</option>
-                <option value="Kristen">Kristen Katolik</option>
-                <option value="Kristen">Hindu</option>
-                <option value="Kristen">Budhha</option>
-
-            </select>
+            <input type="text" id="nama" name="agama" class="form-control" placeholder="Agama" />
         </div>
         <div class="form-group">
             <label for="nama">Alamat</label>
@@ -61,16 +53,12 @@ if(isset($_POST['tambah'])){
         </div>
         <div class="form-group">
             <label for="nama">Status</label>
-            <select name="status" id="status" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="pernah dihukum">pernah dihukum</option>
-                <option value="belum pernah dihukum">belum pernah dihukum</option>
-            </select>
+            <input type="text" id="nama" name="status" class="form-control" placeholder="Status" />
         </div>
         <div class="form-group">
             <label for="nama">Pasal Tersangka</label>
             <input type="text" id="nama" name="pasal" class="form-control" placeholder="Pasal Tersangka" />
         </div>
         <button type="submit" name="tambah" class="btn btn-primary mb-2">Simpan</button>
-        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Tersangka'">Batal</button>
+        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=pra penuntut'">Batal</button>
 	</form>

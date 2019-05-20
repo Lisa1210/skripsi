@@ -1,6 +1,5 @@
 <?php
-if(isset($_POST['ubah'])){
-	$id=$_POST['id'];
+if(isset($_POST['tambah'])){
 	$nama=$_POST['nama'];
 	$ttl=date('Y-m-d',strtotime($_POST['ttl']));
 	$jk=$_POST['jk'];
@@ -10,40 +9,34 @@ if(isset($_POST['ubah'])){
 	$status=$_POST['status'];
 	$pasal=$_POST['pasal'];
 
-	$q=mysqli_query($koneksi,"update tersangka set nama_tersangka='$nama',TTL='$ttl',jk='$jk',agama='$agama',alamat='$alamat',pekerjaan='$pekerjaan',status='$status',pasal_tersangka='$pasal' where id_tersangka=$id");
+	$q=mysqli_query($koneksi,"insert into tersangka values (null, '$nama','$ttl','$jk','$agama','$alamat','$pekerjaan','$status','$pasal')");
 	
 	if($q){
-		?><script>alert('SUKSES\n\nData berhasil di perbaharui');</script><?php
+		?><script>alert('SUKSES\n\nData berhasil diinput');</script><?php
 	}else{
-		?><script>alert('ERROR!\n\nData gagal di perbaharui');</script><?php
+		?><script>alert('ERROR!\n\nData gagal diinput');</script><?php
 	}
 	?><script>location.href='?page=Tersangka';</script><?php
-}
-if(isset($_GET['id'])){
-	$id=$_GET['id'];
-	$q=mysqli_query($koneksi,"select * from tersangka where id_tersangka=$id");
-	$h=mysqli_fetch_array($q);
 }
 ?>
  
 	<h2>DATA TERSANGKA</h2>
 	<br/>
 	<form method="POST" action="">
-		<input type="hidden" name="id" value="<?php echo $h['id_tersangka']; ?>" />
 		<div class="form-group">
             <label for="nama">Nama Tersangka</label>
-            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo $h['nama_tersangka']; ?>" />
+            <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Tersangka" />
         </div>
         <div class="form-group">
             <label for="nama">Tanggal Lahir</label>
-            <input type="text" id="datetimepicker1" name="ttl" class="form-control" value="<?php echo date('d-m-Y',strtotime($h['TTL'])); ?>" />
+            <input type="text" id="datetimepicker1" name="ttl" class="form-control" />
         </div>
         <div class="form-group">
             <label for="jk">Jenis Kelamin</label>
             <select name="jk" id="jk" class="form-control">
             	<option value="">- Pilih -</option>
-            	<option value="Laki-Laki" <?php echo ($h['jk']=='Laki-Laki')?'selected':''; ?> >Laki-Laki</option>
-            	<option value="Perempuan" <?php echo ($h['jk']=='Perempuan')?'selected':''; ?> >Perempuan</option>
+            	<option value="Laki-Laki">Laki-Laki</option>
+            	<option value="Perempuan">Perempuan</option>
             </select>
         </div>
         <div class="form-group">
@@ -57,13 +50,14 @@ if(isset($_GET['id'])){
                 <option value="Kristen">Budhha</option>
 
             </select>
+        </div>
         <div class="form-group">
             <label for="nama">Alamat</label>
-            <input type="text" id="nama" name="alamat" class="form-control" value="<?php echo $h['alamat']; ?>" />
+            <input type="text" id="nama" name="alamat" class="form-control" placeholder="Alamat Lengkap" />
         </div>
         <div class="form-group">
             <label for="nama">Pekerjaan</label>
-            <input type="text" id="nama" name="pekerjaan" class="form-control" value="<?php echo $h['pekerjaan']; ?>" />
+            <input type="text" id="nama" name="pekerjaan" class="form-control" placeholder="Pekerjaan" />
         </div>
         <div class="form-group">
             <label for="nama">Status</label>
@@ -75,8 +69,8 @@ if(isset($_GET['id'])){
         </div>
         <div class="form-group">
             <label for="nama">Pasal Tersangka</label>
-            <input type="text" id="nama" name="pasal" class="form-control" value="<?php echo $h['pasal_tersangka']; ?>" />
+            <input type="text" id="nama" name="pasal" class="form-control" placeholder="Pasal Tersangka" />
         </div>
-        <button type="submit" name="ubah" class="btn btn-primary mb-2">Simpan</button>
-        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Tersangka'">Batal</button>
+        <button type="submit" name="tambah" class="btn btn-primary mb-2">Simpan</button>
+        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=BarangBukti'">Batal</button>
 	</form>
