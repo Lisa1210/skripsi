@@ -1,76 +1,52 @@
 <?php
 if(isset($_POST['tambah'])){
-	$nama=$_POST['nama'];
-	$ttl=date('Y-m-d',strtotime($_POST['ttl']));
-	$jk=$_POST['jk'];
-	$agama=$_POST['agama'];
-	$alamat=$_POST['alamat'];
-	$pekerjaan=$_POST['pekerjaan'];
-	$status=$_POST['status'];
-	$pasal=$_POST['pasal'];
 
-	$q=mysqli_query($koneksi,"insert into tersangka values (null, '$nama','$ttl','$jk','$agama','$alamat','$pekerjaan','$status','$pasal')");
+	$id_tersangka=$_POST['id_tersangka'];
+    $penahanan_penyidik=$_POST['penahanan_penyidik'];
+	$penahanan_kejari=$_POST['penahanan_kejari'];
+	$penahanan_JPU=$_POST['penahanan_JPU'];
+	$penahanan_MH=$_POST['penahanan_MH'];
+	$penahanan_PN=$_POST['penahanan_PN'];
+	
+
+	$q=mysqli_query($koneksi,"insert into penahanan values (null, '$id_tersangka','$penahanan_penyidik','$penahanan_kejari','$penahanan_JPU','$penahanan_MH','$penahanan_PN')");
 	
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil diinput');</script><?php
 	}else{
 		?><script>alert('ERROR!\n\nData gagal diinput');</script><?php
 	}
-	?><script>location.href='?page=Tersangka';</script><?php
+	?><script>location.href='?page=Penahanan';</script><?php
 }
 ?>
  
-	<h2>DATA TERSANGKA</h2>
+	<h2>DATA PENAHANAN</h2>
 	<br/>
 	<form method="POST" action="">
 		<div class="form-group">
-            <label for="nama">Nama Tersangka</label>
-            <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Tersangka" />
+            <label for="nama">id Tersangka</label>
+            <input type="text" id="nama" name="id_Tersangka" class="form-control" placeholder="id_Tersangka" />
         </div>
         <div class="form-group">
-            <label for="nama">Tanggal Lahir</label>
-            <input type="text" id="datetimepicker1" name="ttl" class="form-control" />
+            <label for="nama">Penahanan Penyidik</label>
+            <input type="text" id="nama" name="penahanan_penyidik" class="form-control" placeholder="penahanan_penyidik" />
         </div>
         <div class="form-group">
-            <label for="jk">Jenis Kelamin</label>
-            <select name="jk" id="jk" class="form-control">
-            	<option value="">- Pilih -</option>
-            	<option value="Laki-Laki">Laki-Laki</option>
-            	<option value="Perempuan">Perempuan</option>
-            </select>
+            <label for="nama">Penahanan Kejari</label>
+            <input type="text" id="nama" name="penahanan_kejari" class="form-control" placeholder="penahanan_kejari" />
         </div>
         <div class="form-group">
-            <label for="nama">Agama</label>
-            <select name="agama" id="agama" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="Islam">Islam</option>
-                <option value="Kristen">Kristen Protestan</option>
-                <option value="Kristen">Kristen Katolik</option>
-                <option value="Kristen">Hindu</option>
-                <option value="Kristen">Budhha</option>
-
-            </select>
+            <label for="nama">Penahanan JPU</label>
+            <input type="text" id="nama" name="penahanan_JPU" class="form-control" placeholder="penahanan_JPU" />
         </div>
         <div class="form-group">
-            <label for="nama">Alamat</label>
-            <input type="text" id="nama" name="alamat" class="form-control" placeholder="Alamat Lengkap" />
+            <label for="nama">Penahanan MH</label>
+            <input type="text" id="nama" name="penahanan_MH" class="form-control" placeholder="penahanan_MH" />
         </div>
         <div class="form-group">
-            <label for="nama">Pekerjaan</label>
-            <input type="text" id="nama" name="pekerjaan" class="form-control" placeholder="Pekerjaan" />
-        </div>
-        <div class="form-group">
-            <label for="nama">Status</label>
-            <select name="status" id="status" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="pernah dihukum">pernah dihukum</option>
-                <option value="belum pernah dihukum">belum pernah dihukum</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="nama">Pasal Tersangka</label>
-            <input type="text" id="nama" name="pasal" class="form-control" placeholder="Pasal Tersangka" />
+            <label for="nama">Penahanan PN</label>
+            <input type="text" id="nama" name="penahanan_PN" class="form-control" placeholder="penahanan_PN" />
         </div>
         <button type="submit" name="tambah" class="btn btn-primary mb-2">Simpan</button>
-        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Tersangka'">Batal</button>
+        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Penahanan'">Batal</button>
 	</form>

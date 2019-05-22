@@ -1,22 +1,21 @@
 <?php
 if(isset($_POST['tambah'])){
-	$nama=$_POST['nama'];
-	$ttl=date('Y-m-d',strtotime($_POST['ttl']));
-	$jk=$_POST['jk'];
-	$agama=$_POST['agama'];
-	$alamat=$_POST['alamat'];
-	$pekerjaan=$_POST['pekerjaan'];
-	$status=$_POST['status'];
-	$pasal=$_POST['pasal'];
+	$id_jaksa=$_POST['id_jaksa'];
+	$Hasil_Konsultasi=$_POST['Hasil_konsultasi'];
+	$P_17=$_POST['P_17'];
+	$P_18=$_POST['P_18'];
+	$isipetunjuk=$_POST['isipetunjuk'];
+	$P_22=$_POST['P_22'];
+	$Penyelesaia=$_POST['Penyelesaia'];
 
-	$q=mysqli_query($koneksi,"insert into tersangka values (null, '$nama','$ttl','$jk','$agama','$alamat','$pekerjaan','$status','$pasal')");
+	$q=mysqli_query($koneksi,"insert into pra penuntut values (null, '$id_jaksa','$Hasil_konsultasi','$P_17','$P_18','$isipetunjuk','$P_22','$Penyelesaia')");
 	
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil diinput');</script><?php
 	}else{
 		?><script>alert('ERROR!\n\nData gagal diinput');</script><?php
 	}
-	?><script>location.href='?page=Tersangka';</script><?php
+	?><script>location.href='?page=pra penuntut';</script><?php
 }
 ?>
  
@@ -24,41 +23,34 @@ if(isset($_POST['tambah'])){
 	<br/>
 	<form method="POST" action="">
 		<div class="form-group">
-            <label for="nama">Nama Tersangka</label>
-            <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Tersangka" />
+            <label for="nama">id_jaksa</label>
+            <input type="text" id="nama" name="id_jaksa" class="form-control" placeholder="id_jaksa" />
         </div>
         <div class="form-group">
-            <label for="nama">Tanggal Lahir</label>
-            <input type="text" id="datetimepicker1" name="ttl" class="form-control" />
+            <label for="nama">Hasil_konsultasi</label>
+            <input type="text" id="nama" name="hasil_konsultasi" class="form-control" placeholder="Hasil_konsultasi" />
         </div>
         <div class="form-group">
-            <label for="jk">Jenis Kelamin</label>
-            <select name="jk" id="jk" class="form-control">
-            	<option value="">- Pilih -</option>
-            	<option value="Laki-Laki">Laki-Laki</option>
-            	<option value="Perempuan">Perempuan</option>
-            </select>
+            <label for="nama">P_17</label>
+            <input type="text" id="nama" name="P_17" class="form-control" placeholder="P-17" />
         </div>
         <div class="form-group">
-            <label for="nama">Agama</label>
-            <input type="text" id="nama" name="agama" class="form-control" placeholder="Agama" />
+            <label for="nama">P_18</label>
+            <input type="text" id="nama" name="P_18" class="form-control" placeholder="P_18" />
         </div>
         <div class="form-group">
-            <label for="nama">Alamat</label>
-            <input type="text" id="nama" name="alamat" class="form-control" placeholder="Alamat Lengkap" />
+            <label for="nama">isipetunjuk</label>
+            <input type="text" id="nama" name="isipetunjuk" class="form-control" placeholder="isipetunjuk" />
         </div>
         <div class="form-group">
-            <label for="nama">Pekerjaan</label>
-            <input type="text" id="nama" name="pekerjaan" class="form-control" placeholder="Pekerjaan" />
+            <label for="nama">P_22</label>
+            <input type="text" id="nama" name="P_22" class="form-control" placeholder="P_22" />
         </div>
         <div class="form-group">
-            <label for="nama">Status</label>
-            <input type="text" id="nama" name="status" class="form-control" placeholder="Status" />
+            <label for="nama">Penyelesaia</label>
+            <input type="text" id="nama" name="Penyelesaia" class="form-control" placeholder="Penyelesaia" />
         </div>
-        <div class="form-group">
-            <label for="nama">Pasal Tersangka</label>
-            <input type="text" id="nama" name="pasal" class="form-control" placeholder="Pasal Tersangka" />
-        </div>
+    
         <button type="submit" name="tambah" class="btn btn-primary mb-2">Simpan</button>
         <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=pra penuntut'">Batal</button>
 	</form>

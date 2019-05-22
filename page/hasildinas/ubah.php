@@ -2,81 +2,53 @@
 if(isset($_POST['ubah'])){
 	$id=$_POST['id'];
 	$nama=$_POST['nama'];
-	$ttl=date('Y-m-d',strtotime($_POST['ttl']));
-	$jk=$_POST['jk'];
-	$agama=$_POST['agama'];
-	$alamat=$_POST['alamat'];
-	$pekerjaan=$_POST['pekerjaan'];
-	$status=$_POST['status'];
-	$pasal=$_POST['pasal'];
+    $hasildinas=$_POST['hasildinas'];
+    $setor=$_POST['setor'];
+    $no_ssbp=$_POST['no_ssbp'];
+    $tanggal_setor=date('Y-m-d',strtotime($_POST['ttl']));
+    $amar_putusan=$_POST['amar_putusan'];
 
-	$q=mysqli_query($koneksi,"update tersangka set nama_tersangka='$nama',TTL='$ttl',jk='$jk',agama='$agama',alamat='$alamat',pekerjaan='$pekerjaan',status='$status',pasal_tersangka='$pasal' where id_tersangka=$id");
+	$q=mysqli_query($koneksi,"update hasil_dinas set id_tersangka='$nama',hasil_dinas='$hasildinas',setor='$setor',no_ssbp='$no_ssbp',tanggal_setor='$tanggal_setor',amar_putusan='$amar_putusan' where id_tersangka=$id");
 	
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil di perbaharui');</script><?php
 	}else{
 		?><script>alert('ERROR!\n\nData gagal di perbaharui');</script><?php
 	}
-	?><script>location.href='?page=Tersangka';</script><?php
+	?><script>location.href='?page=hasildinas';</script><?php
 }
 if(isset($_GET['id'])){
 	$id=$_GET['id'];
-	$q=mysqli_query($koneksi,"select * from tersangka where id_tersangka=$id");
+	$q=mysqli_query($koneksi,"select * from hasil_dinas where id_tersangka=$id");
 	$h=mysqli_fetch_array($q);
 }
 ?>
  
-	<h2>DATA TERSANGKA</h2>
+	<h2>DATA HASIL DINAS</h2>
 	<br/>
 	<form method="POST" action="">
 		<input type="hidden" name="id" value="<?php echo $h['id_tersangka']; ?>" />
-		<div class="form-group">
-            <label for="nama">Nama Tersangka</label>
-            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo $h['nama_tersangka']; ?>" />
+        <div class="form-group">
+            <label for="nama">hasil dinas</label>
+            <input type="text" id="nama" name="hasildinas" class="form-control" value="<?php echo $h['hasil_dinas']; ?>" />
         </div>
         <div class="form-group">
-            <label for="nama">Tanggal Lahir</label>
-            <input type="text" id="datetimepicker1" name="ttl" class="form-control" value="<?php echo date('d-m-Y',strtotime($h['TTL'])); ?>" />
+            <label for="nama">setor</label>
+            <input type="text" id="nama" name="setor" class="form-control" value="<?php echo $h['setor']; ?>" />
         </div>
         <div class="form-group">
-            <label for="jk">Jenis Kelamin</label>
-            <select name="jk" id="jk" class="form-control">
-            	<option value="">- Pilih -</option>
-            	<option value="Laki-Laki" <?php echo ($h['jk']=='Laki-Laki')?'selected':''; ?> >Laki-Laki</option>
-            	<option value="Perempuan" <?php echo ($h['jk']=='Perempuan')?'selected':''; ?> >Perempuan</option>
-            </select>
+            <label for="nama">no ssbp</label>
+            <input type="text" id="nama" name="no_ssbp" class="form-control" value="<?php echo $h['no_ssbp']; ?>" />
         </div>
         <div class="form-group">
-            <label for="nama">Agama</label>
-            <select name="agama" id="agama" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="Islam">Islam</option>
-                <option value="Kristen">Kristen Protestan</option>
-                <option value="Kristen">Kristen Katolik</option>
-                <option value="Kristen">Hindu</option>
-                <option value="Kristen">Budhha</option>
-
-            </select>
-        <div class="form-group">
-            <label for="nama">Alamat</label>
-            <input type="text" id="nama" name="alamat" class="form-control" value="<?php echo $h['alamat']; ?>" />
+            <label for="nama">Tanggal setorr</label>
+            <input type="text" id="datetimepicker1" name="tanggal_setor" class="form-control" value="<?php echo date('d-m-Y',strtotime($h['tanggal_setor'])); ?>" />
         </div>
         <div class="form-group">
-            <label for="nama">Pekerjaan</label>
-            <input type="text" id="nama" name="pekerjaan" class="form-control" value="<?php echo $h['pekerjaan']; ?>" />
+            <label for="nama">Amar putusan</label>
+            <input type="text" id="nama" name="amar_putusan" class="form-control" value="<?php echo $h['amar_putusan']; ?>" />
         </div>
-        <div class="form-group">
-            <label for="nama">Status</label>
-            <select name="status" id="status" class="form-control">
-                <option value="">- Pilih -</option>
-                <option value="pernah dihukum">pernah dihukum</option>
-                <option value="belum pernah dihukum">belum pernah dihukum</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="nama">Pasal Tersangka</label>
-            <input type="text" id="nama" name="pasal" class="form-control" value="<?php echo $h['pasal_tersangka']; ?>" />
-        </div>
+        
         <button type="submit" name="ubah" class="btn btn-primary mb-2">Simpan</button>
-        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=Tersangka'">Batal</button>
+        <button type="button" class="btn btn-danger mb-2" onclick="location.href='?page=hasildinas'">Batal</button>
 	</form>

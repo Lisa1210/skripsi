@@ -11,26 +11,35 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Jaksa</th>
-                                            <th>NIP</th>
-                                            <th>Jabatan</th>
-                                            <th>Golongan</th>
+                                            <th>id_Jaksa</th>
+                                            <th>Hasil_Konsultasi</th>
+                                            <th>isi_konsultasi</th>
+                                            <th>P_17</th>
+                                            <th>P_18</th>
+                                            <th>isipetunjuk</th>
+                                            <th>P_22</th>
+                                            <th>Penyelesaia</th>
                                             <th>aksi</th>
                                         </tr>
                                     </thead>
                                    
 <?php 
-                                        $sql = mysqli_query ($koneksi,"select * from jaksa");
+                                        $sql = mysqli_query ($koneksi,"select * from pra penuntut");
                                         while ($data=mysqli_fetch_array($sql)) {
                                         $No = 1;  
                                 
                                         ?>
                                     <tr>
                                      <td><?php echo $No++;?></td>
-                                        <td><?php echo $data["Nama_jaksa"];?></td>
-                                        <td><?php echo $data["NIP"];?></td>
-                                        <td><?php echo $data["Jabatan"];?></td>
-                                        <td><?php echo $data["golongan"];?></td>
+                                        <td><?php echo $data["id_jaksa"];?></td>
+                                        <td><?php echo $data["Hasil_Konsultasi"];?></td>
+                                        <td><?php echo $data["isi_konsultasi"];?></td>
+                                        <td><?php echo $data["P_17"];?></td>
+                                        <td><?php echo $data["P_18"];?></td>
+                                        <td><?php echo $data["isipetunjuk"];?></td>
+                                        <td><?php echo $data["P_22"];?></td>
+                                        <td><?php echo $data["Penyelesaia"];?></td>
+
                                         
                                      <td>
                                             <a href=""class = "btn btn-info">ubah</a>

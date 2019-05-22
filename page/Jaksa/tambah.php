@@ -23,6 +23,7 @@ if(isset($_POST['tambah'])){
 		<div class="form-group">
             <label for="nama">Nama Jaksa</label>
             <input type="text" id="nama" name="nama" class="form-control" placeholder="nama_jaksa" />
+            </div>
         <div class="form-group">
             <label for="nama">NIP</label>
             <input type="text" id="nama" name="NIP" class="form-control" placeholder="NIP" />
