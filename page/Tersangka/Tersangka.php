@@ -1,5 +1,4 @@
 
-
 <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -60,19 +59,17 @@
 <a href="?page=Tersangka&aksi=tambah" class="btn btn-success"
 style="color: white; margin: 5px 8px;  font-size: 14px;"><i
 class ="fa fa-plus"></i> TAMBAH DATA </a>
-<a href="./laporan/laporan_tersangka_exel.php "class="btn btn-default"
+<a href="./laporan/laporan_tersangka_exel.php target="blank" "class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
-class ="fa fa plus"></i>Export To Excel </a>
-<a href="./laporan/laporan_tersangka_pdf.php "class="btn btn-default"
+class ="fa fa-print"></i>Export To Excel </a>
+<a href="page/Tersangka/cetak_pdf.php" target ="blank" class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
-class ="fa fa plus"></i>Export To pdf </a>
-
+ class="fa fa-print"></i>cetak</a>
 </div>
 </div>
 </div>
 </div>
 </div>
-
 <footer>
       <center><p>Kejaksaan Negeri Kapuas &copy; 2019</p></center>
       <!--<p class="pull-right">Powered by:</p>-->

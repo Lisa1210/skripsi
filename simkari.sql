@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 14, 2019 at 12:25 PM
+-- Generation Time: May 27, 2019 at 02:15 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -26,21 +26,23 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `barang_bukti` (
-  `No_Regis` varchar(20) NOT NULL,
+  `No_Regis` int(20) NOT NULL AUTO_INCREMENT,
   `namabarangbukti` varchar(30) NOT NULL,
   `jumlah` int(20) NOT NULL,
   `satuan` int(20) NOT NULL,
   `pemilik` varchar(50) NOT NULL,
   `tgl_eksekusi` date NOT NULL,
   PRIMARY KEY (`No_Regis`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `barang_bukti`
 --
 
 INSERT INTO `barang_bukti` (`No_Regis`, `namabarangbukti`, `jumlah`, `satuan`, `pemilik`, `tgl_eksekusi`) VALUES
-('sfs', 'fs', 0, 0, 'sfgs', '2019-05-07');
+(1, 'fs', 0, 0, 'sfgs', '2019-05-07'),
+(2, 're', 0, 0, 'erw', '0000-00-00'),
+(3, 'fda', 0, 0, 'fdas', '2019-05-30');
 
 -- --------------------------------------------------------
 
@@ -56,16 +58,20 @@ CREATE TABLE IF NOT EXISTS `eksekusi` (
   `masa_percobaan` varchar(20) NOT NULL,
   `pidana_badan` varchar(20) NOT NULL,
   `denda` int(20) NOT NULL,
-  `biaya perkara` int(20) NOT NULL,
+  `biaya_perkara` int(20) NOT NULL,
   PRIMARY KEY (`id_tersangka`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `eksekusi`
 --
 
-INSERT INTO `eksekusi` (`id_tersangka`, `Nama_jaksa`, `putusan`, `amar_putusan`, `masa_percobaan`, `pidana_badan`, `denda`, `biaya perkara`) VALUES
-(1, 'sca', 'da', 'da', 'ad', 'asd', 0, 0);
+INSERT INTO `eksekusi` (`id_tersangka`, `Nama_jaksa`, `putusan`, `amar_putusan`, `masa_percobaan`, `pidana_badan`, `denda`, `biaya_perkara`) VALUES
+(1, 'sca', 'da', 'da', 'ad', 'asd', 0, 0),
+(2, '0', 'er', 'ew', 'er', 'erw', 0, 0),
+(3, '', '', '', '', '', 0, 0),
+(4, 'rs', 'sr', '', '', '', 0, 0),
+(5, '', '', '', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -81,14 +87,15 @@ CREATE TABLE IF NOT EXISTS `hasil_dinas` (
   `tanggal_setor` date NOT NULL,
   `amar_putusan` varchar(20) NOT NULL,
   PRIMARY KEY (`id_tersangka`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `hasil_dinas`
 --
 
 INSERT INTO `hasil_dinas` (`id_tersangka`, `hasil_dinas`, `setor`, `no_ssbp`, `tanggal_setor`, `amar_putusan`) VALUES
-(1, 'DFA', 0, 0, '0000-00-00', 'SFD');
+(1, 'DFA', 0, 0, '0000-00-00', 'SFD'),
+(2, 'fda', 0, 0, '0000-00-00', 'dfad');
 
 -- --------------------------------------------------------
 
@@ -97,20 +104,25 @@ INSERT INTO `hasil_dinas` (`id_tersangka`, `hasil_dinas`, `setor`, `no_ssbp`, `t
 --
 
 CREATE TABLE IF NOT EXISTS `jaksa` (
-  `id_jaksa` int(11) NOT NULL,
+  `id_jaksa` int(11) NOT NULL AUTO_INCREMENT,
   `Nama_jaksa` varchar(50) NOT NULL,
   `NIP` varchar(20) NOT NULL,
   `Jabatan` varchar(20) NOT NULL,
   `golongan` varchar(20) NOT NULL,
   PRIMARY KEY (`id_jaksa`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `jaksa`
 --
 
 INSERT INTO `jaksa` (`id_jaksa`, `Nama_jaksa`, `NIP`, `Jabatan`, `golongan`) VALUES
-(0, 'adfa', 'dfaf', 'daa', 'dfaa');
+(2, '', 'a', '', 'a'),
+(14, '', '', '', ''),
+(8, 'daf', 'da', 'dsf', 'Laki-Laki'),
+(9, 'asda', 'dfa', 'fda', 'Laki-Laki'),
+(11, 'abu', '234', '', 'Laki-Laki'),
+(12, 'adaaaa', '13', '12e', 'Laki-Laki');
 
 -- --------------------------------------------------------
 
@@ -145,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `penuntut` (
   `id_jaksa` int(11) NOT NULL,
   `Nama_jaksa` varchar(20) NOT NULL,
   `No_regis` date NOT NULL,
-  `No_Tanggal Penerimaan BB` date NOT NULL,
+  `Tanggal_Penerimaan_BB` date NOT NULL,
   PRIMARY KEY (`id_jaksa`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -153,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `penuntut` (
 -- Dumping data for table `penuntut`
 --
 
-INSERT INTO `penuntut` (`id_jaksa`, `Nama_jaksa`, `No_regis`, `No_Tanggal Penerimaan BB`) VALUES
+INSERT INTO `penuntut` (`id_jaksa`, `Nama_jaksa`, `No_regis`, `Tanggal_Penerimaan_BB`) VALUES
 (0, 'DFAD', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
@@ -163,24 +175,25 @@ INSERT INTO `penuntut` (`id_jaksa`, `Nama_jaksa`, `No_regis`, `No_Tanggal Peneri
 --
 
 CREATE TABLE IF NOT EXISTS `pra penuntut` (
+  `id_pra_penuntut` int(11) NOT NULL AUTO_INCREMENT,
   `id_jaksa` int(11) NOT NULL,
   `Hasil_konsultasi` varchar(50) NOT NULL,
-  `Isi_Konsultasi` varchar(50) NOT NULL,
   `P_17` varchar(20) NOT NULL,
   `P_18` varchar(30) NOT NULL,
   `isipetunjuk` varchar(30) NOT NULL,
   `P_22` varchar(30) NOT NULL,
   `P_21` varchar(30) NOT NULL,
   `Penyelesaia` varchar(30) NOT NULL,
-  PRIMARY KEY (`id_jaksa`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_pra_penuntut`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `pra penuntut`
 --
 
-INSERT INTO `pra penuntut` (`id_jaksa`, `Hasil_konsultasi`, `Isi_Konsultasi`, `P_17`, `P_18`, `isipetunjuk`, `P_22`, `P_21`, `Penyelesaia`) VALUES
-(0, 'sfg', 'fs', 'fsggg', 'fg', 'fs', 'fsg', 'fsg', 'fss');
+INSERT INTO `pra penuntut` (`id_pra_penuntut`, `id_jaksa`, `Hasil_konsultasi`, `P_17`, `P_18`, `isipetunjuk`, `P_22`, `P_21`, `Penyelesaia`) VALUES
+(3, 1, 'sfg', 'fsggg', 'fg', 'fs', 'fsg', 'fsg', 'fss'),
+(4, 2, 'daf', 'da', 'dfa', 'ds', 'sdf', 'sda', 'dsaf');
 
 -- --------------------------------------------------------
 
@@ -199,15 +212,19 @@ CREATE TABLE IF NOT EXISTS `tersangka` (
   `status` varchar(30) NOT NULL,
   `pasal_tersangka` varchar(30) NOT NULL,
   PRIMARY KEY (`id_tersangka`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `tersangka`
 --
 
 INSERT INTO `tersangka` (`id_tersangka`, `nama_tersangka`, `TTL`, `jk`, `agama`, `alamat`, `pekerjaan`, `status`, `pasal_tersangka`) VALUES
-(1, 'fvds', '2019-05-09', 'dsf', 'sdf', 'dfag', 'gad', 'agfa', 'fga'),
-(2, 'sa', '2019-05-11', 'sadad', 'dasa', 'dsaas', 'sdada', 'dassa', 'asdadsa');
+(1, 'adsda', '2019-05-09', 'Perempuan', '', 'dfag', 'gad', 'Islam', 'fga'),
+(3, 'zxcxzxz', '2019-05-15', 'Laki-Laki', 'xcxzc', 'cxzc', 'xzc', 'xzc', 'cxz'),
+(5, 'asda', '2019-05-02', 'Laki-Laki', 'sad', 'sda', 'dads', 'sad', 'sda'),
+(8, 'adsda', '2019-05-17', 'Laki-Laki', '', 'ds', 'ds', 'Islam', 'dfs'),
+(9, 'a', '2019-05-17', 'Laki-Laki', 'Islam', 'a', 'a', '', 'a'),
+(13, 'dsa', '2019-05-20', 'Laki-Laki', '', 'sa', 'sad', 'pernah dihukum', 'sda');
 
 -- --------------------------------------------------------
 
@@ -220,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `upaya_hukum` (
   `id_jaksa` int(11) NOT NULL,
   `Jabatan` varchar(20) NOT NULL,
   `Golongan` varchar(20) NOT NULL,
-  `nama tersangka` varchar(50) NOT NULL,
+  `nama_tersangka` varchar(50) NOT NULL,
   PRIMARY KEY (`NIP`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -228,8 +245,9 @@ CREATE TABLE IF NOT EXISTS `upaya_hukum` (
 -- Dumping data for table `upaya_hukum`
 --
 
-INSERT INTO `upaya_hukum` (`NIP`, `id_jaksa`, `Jabatan`, `Golongan`, `nama tersangka`) VALUES
-('fgs', 0, 'fs', 'gfs', '0');
+INSERT INTO `upaya_hukum` (`NIP`, `id_jaksa`, `Jabatan`, `Golongan`, `nama_tersangka`) VALUES
+('fgs', 0, 'fs', 'gfs', '0'),
+('', 0, 'sa', 's', '0');
 
 -- --------------------------------------------------------
 
@@ -240,7 +258,8 @@ INSERT INTO `upaya_hukum` (`NIP`, `id_jaksa`, `Jabatan`, `Golongan`, `nama tersa
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `level` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
@@ -248,9 +267,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'admin', '123'),
-(2, 'user', '123');
+INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
+(1, 'admin', '202cb962ac59075b964b07152d234b70', 'Administrator'),
+(2, 'penyidik', '202cb962ac59075b964b07152d234b70', 'Penyidik');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

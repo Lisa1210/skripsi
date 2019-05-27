@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
         <input type="hidden" name="id" value="<?php echo $h['id_jaksa']; ?>" />
         <div class="form-group">
             <label for="nama">Nama Jaksa</label>
-            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo $h['nama_jaksa']; ?>" />
+            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo $h['Nama_jaksa']; ?>" />
         </div>
        
         <div class="form-group">
@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
         </div>
         <div class="form-group">
             <label for="nama">Jabatan</label>
-            <input type="text" id="nama" name="jabatan" class="form-control" value="<?php echo $h['jabatan']; ?>" />
+            <input type="text" id="nama" name="jabatan" class="form-control" value="<?php echo $h['Jabatan']; ?>" />
         </div>
         <div class="form-group">
             <label for="nama">golongan</label>

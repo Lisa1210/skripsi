@@ -263,9 +263,9 @@ if(isset($_GET['logout'])){
                         }
                     
                     }elseif ($page == "Pra Penuntut") {
-                     if ($aksi=="") {
+                        if ($aksi=="") {
                             include "page/Pra Penuntut/Pra Penuntut.php";
-                    }if ($aksi== "tambah"){ 
+                        }if ($aksi== "tambah"){ 
                             include "page/Pra Penuntut/tambah.php"; 
                         }if ($aksi== "ubah"){ 
                             include "page/Pra Penuntut/ubah.php"; 
@@ -273,7 +273,7 @@ if(isset($_GET['logout'])){
                             include "page/Pra Penuntut/hapus.php"; 
                         
                         }
-              } 
+                    } 
                     ?>
                        
                     </div>

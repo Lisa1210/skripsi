@@ -47,9 +47,9 @@ class ="fa fa-plus"></i> TAMBAH DATA </a>
 <a href="./laporan/laporan_barangbukti_exel.php "class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
 class ="fa fa plus"></i>Export To Excel </a>
-<a href="./laporan/laporan_barangbukti_pdf.php "class="btn btn-default"
+<a href="page/BarangBukti/cetak_pdf.php" target ="blank" class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
-class ="fa fa plus"></i>Export To pdf </a>
+ class="fa fa-print"></i>cetak</a>
 </div>
 </div>
 </div>
