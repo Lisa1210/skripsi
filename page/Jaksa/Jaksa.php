@@ -45,9 +45,6 @@
 <a href="?page=Jaksa&aksi=tambah" class="btn btn-success"
 style="color: white; margin: 5px 8px;  font-size: 14px;"><i
 class ="fa fa-plus"></i> TAMBAH DATA </a>
-<a href="./laporan/laporan_jaksa_exel.php "class="btn btn-default"
-style="margin: 5px 8px;  font-size: 14px;"><i
-class ="fa fa plus"></i>Export To Excel </a>
 <a href="page/Jaksa/cetak_pdf.php" target ="blank" class="btn btn-default"
 style="margin: 5px 8px;  font-size: 14px;"><i
  class="fa fa-print"></i>cetak</a>

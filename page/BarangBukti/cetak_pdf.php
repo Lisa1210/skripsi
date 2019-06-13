@@ -1,8 +1,5 @@
-<?php 
-$koneksi = mysqli_connect("localhost", "root","","Simkari");
-if (mysqli_connect_errno()){
-    echo "koneksi database gagal:".mysqli_connect_error();
-}
+<?php
+include "../../koneksi.php";
  ?>
 
  <style>
@@ -19,30 +16,33 @@ if (mysqli_connect_errno()){
 <tr>
 
                                           <th>No</th>
-                                            <th>Nama Barang Bukti</th>
-                                            <th>Jumlah</th>
-                                            <th>Satuan</th>
-                                            <th>Pemilik</th>
-                                            <th>Tanggal Eksekusi</th>
-                                      
+                                          <th>No Regis</th>
+                                          <th>Nama Barang Bukti</th>
+                                          <th>Jumlah</th>
+                                          <th>Satuan</th>
+                                          <th>Pemilik</th>
+                                          <th>Tanggal Eksekusi</th>
+
  </thead>
  <tbody>
-<?php 
+<?php
                                         $sql = mysqli_query ($koneksi,"select * from barang_bukti");
+                                        $No = 1;
                                         while ($data=mysqli_fetch_array($sql)) {
-                                        $No = 1;  
-                                
+
+
                                         ?>
                                     <tr>
                                      <td><?php echo $No++;?></td>
+                                     <td><?php echo $data["No_regis"];?></td>
                                         <td><?php echo $data["namabarangbukti"];?></td>
                                         <td><?php echo $data["jumlah"];?></td>
                                         <td><?php echo $data["satuan"];?></td>
                                         <td><?php echo $data["pemilik"];?></td>
                                         <td><?php echo $data["tgl_eksekusi"];?></td>
-                                    
+
                                     </tr>
-                                     
+
 <?php } ?>
 
 
@@ -50,5 +50,3 @@ if (mysqli_connect_errno()){
  </table>
  <br>
 <input type ="button" class ="noPrint" value="cetak" onclick="window.print()">
-
-       

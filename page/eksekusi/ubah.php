@@ -1,38 +1,82 @@
 <?php
 if(isset($_POST['ubah'])){
-	$nama=$_POST['nama'];
+		$id = $_GET['id'];
+		$id_jaksa=$_POST['id_jaksa'];
+		$id_tersangka=$_POST['id_tersangka'];
     $putusan=$_POST['putusan'];
     $amar=$_POST['amar_putusan'];
     $masapercobaan=$_POST['masa_percobaan'];
     $pidanabadan=$_POST['pidana_badan'];
     $denda=$_POST['denda'];
     $biayaperkara=$_POST['biaya_perkara'];
-	$q=mysqli_query($koneksi,"update eksekusi set nama='$nama',putusan='$putusan',amar='$amar_putusan',
-        masapercobaan='$masa_percobaan',pidanabadan='$pidana_badan=denda='$denda', biayaperkara='$biaya_perkara' where id_tersangka=$id");
-	
+				$q=mysqli_query($koneksi,"update eksekusi set id_jaksa='$id_jaksa',id_tersangka='$id_tersangka',
+																  putusan='$putusan',amar_putusan='$amar',masa_percobaan='$masapercobaan',
+																	pidana_badan='$pidanabadan',denda='$denda',biaya_perkara='$biayaperkara'
+																	where id=$id");
+
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil di perbaharui');</script><?php
 	}else{
 		?><script>alert('ERROR!\n\nData gagal di perbaharui');</script><?php
 	}
-	?><script>location.href='?page=eksekusi';</script><?php
+	?>
+	<script>location.href='?page=eksekusi';</script>
+	<?php
 }
 if(isset($_GET['id'])){
 	$id=$_GET['id'];
-	$q=mysqli_query($koneksi,"select * from eksekusi where id_tersangka=$id");
+	$q=mysqli_query($koneksi,"select * from eksekusi where id=$id");
 	$h=mysqli_fetch_array($q);
 }
 ?>
- 
+
 	<h2>DATA EKSEKUSI</h2>
 	<br/>
 	<form method="POST" action="">
-		<input type="hidden" name="id" value="<?php echo $h['id_tersangka']; ?>" />
-		<div class="form-group">
-            <label for="nama">Nama jaksa</label>
-            <input type="text" id="nama" name="nama" class="form-control" value="<?php echo $h['nama_jaksa']; ?>" />
+				<div class="form-group">
+            <label for="nama">Tersangka</label>
+						<select id="nama" name="id_tersangka" class="form-control" >
+                <?php
+                $q=mysqli_query($koneksi, "select * from tersangka");
+                while ($b=mysqli_fetch_array($q)) {
+                    ?>
+										<option value="<?php echo $b['id_tersangka']; ?>"
+											<?php
+											if($b['id_tersangka'] == $h['id_tersangka']){
+												echo "selected";
+											}
+											?>
+										>
+											<?php echo $b['nama_tersangka']; ?>
+										</option>
+										<?php
+                }
+                ?>
+            </select>
         </div>
-        
+
+				<div class="form-group">
+            <label for="nama">Jaksa</label>
+						<select id="nama" name="id_jaksa" class="form-control" >
+                <?php
+                $q=mysqli_query($koneksi, "select * from jaksa");
+                while ($b=mysqli_fetch_array($q)) {
+                    ?>
+										<option value="<?php echo $b['id_jaksa']; ?>"
+											<?php
+											if($b['id_jaksa'] == $h['id_jaksa']){
+												echo "selected";
+											}
+											?>
+										>
+											<?php echo $b['Nama_jaksa']; ?>
+										</option>
+										<?php
+                }
+                ?>
+            </select>
+        </div>
+
         <div class="form-group">
             <label for="nama">Putusan</label>
             <input type="text" id="nama" name="putusan" class="form-control" value="<?php echo $h['putusan']; ?>" />

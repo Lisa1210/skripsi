@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['tambah'])){
-	$nama=$_POST['nama'];
+	$id_jaksa=$_POST['id_jaksa'];
+	$id_tersangka=$_POST['id_tersangka'];
 	$putusan=$_POST['putusan'];
 	$amar=$_POST['amar_putusan'];
 	$masapercobaan=$_POST['masa_percobaan'];
@@ -8,8 +9,9 @@ if(isset($_POST['tambah'])){
 	$denda=$_POST['denda'];
 	$biayaperkara=$_POST['biaya_perkara'];
 
-	$q=mysqli_query($koneksi,"insert into eksekusi values (null, '$nama','$putusan','$amar_putusan','$masa_percobaan','$pidana_badan','$denda','$biaya_perkara')");
-	
+	$q=mysqli_query($koneksi,"insert into eksekusi values (null, '$id_jaksa','$id_tersangka','$putusan',
+													'$amar','$masapercobaan','$pidanabadan','$denda','$biayaperkara')");
+
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil diinput');</script><?php
 	}else{
@@ -18,15 +20,34 @@ if(isset($_POST['tambah'])){
 	?><script>location.href='?page=eksekusi';</script><?php
 }
 ?>
- 
+
 	<h2>DATA EKSEKUSI</h2>
 	<br/>
 	<form method="POST" action="">
 		<div class="form-group">
-            <label for="nama">Nama Jaksa</label>
-            <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama_jaksa" />
+            <label for="nama">Tersangka</label>
+						<select id="nama" name="id_tersangka" class="form-control" >
+                <option value="">- Pilih -</option>
+                <?php
+                $q=mysqli_query($koneksi,"select * from tersangka");
+                while($h=mysqli_fetch_array($q)){
+                    ?><option value="<?php echo $h['id_tersangka']; ?>"><?php echo $h['id_tersangka']." - ".$h['nama_tersangka']; ?></option><?php
+                }
+                ?>
+            </select>
         </div>
-       
+				<div class="form-group">
+								<label for="nama">Jaksa</label>
+								<select id="nama" name="id_jaksa" class="form-control" >
+										<option value="">- Pilih -</option>
+										<?php
+										$q=mysqli_query($koneksi,"select * from jaksa");
+										while($h=mysqli_fetch_array($q)){
+												?><option value="<?php echo $h['id_jaksa']; ?>"><?php echo $h['id_jaksa']." - ".$h['Nama_jaksa']; ?></option><?php
+										}
+										?>
+								</select>
+						</div>
         <div class="form-group">
             <label for="nama">putusan</label>
             <input type="text" id="nama" name="putusan" class="form-control" placeholder="putusan" />

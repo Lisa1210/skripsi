@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['tambah'])){
 	$nama=$_POST['nama'];
+  $tempat_lahir=$_POST['tempat_lahir'];
 	$ttl=date('Y-m-d',strtotime($_POST['ttl']));
 	$jk=$_POST['jk'];
 	$agama=$_POST['agama'];
@@ -9,8 +10,8 @@ if(isset($_POST['tambah'])){
 	$status=$_POST['status'];
 	$pasal=$_POST['pasal'];
 
-	$q=mysqli_query($koneksi,"insert into tersangka values (null, '$nama','$ttl','$jk','$agama','$alamat','$pekerjaan','$status','$pasal')");
-	
+	$q=mysqli_query($koneksi,"insert into tersangka values (null, '$nama','$tempat_lahir','$ttl','$jk','$agama','$alamat','$pekerjaan','$status','$pasal')");
+
 	if($q){
 		?><script>alert('SUKSES\n\nData berhasil diinput');</script><?php
 	}else{
@@ -19,13 +20,18 @@ if(isset($_POST['tambah'])){
 	?><script>location.href='?page=Tersangka';</script><?php
 }
 ?>
- 
+
 	<h2>DATA TERSANGKA</h2>
 	<br/>
 	<form method="POST" action="">
 		<div class="form-group">
             <label for="nama">Nama Tersangka</label>
             <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Tersangka" />
+        </div>
+
+         <div class="form-group">
+            <label for="nama">Tempat Lahir</label>
+            <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" />
         </div>
         <div class="form-group">
             <label for="nama">Tanggal Lahir</label>

@@ -1,8 +1,5 @@
-<?php 
-$koneksi = mysqli_connect("localhost", "root","","Simkari");
-if (mysqli_connect_errno()){
-    echo "koneksi database gagal:".mysqli_connect_error();
-}
+<?php
+include "../../koneksi.php";
  ?>
 
  <style>
@@ -21,16 +18,17 @@ if (mysqli_connect_errno()){
 <th>Nama Jaksa</th>
                                             <th>NIP</th>
                                             <th>Jabatan</th>
-                                            <th>Golongan</th>	
+                                            <th>Golongan</th>
 
 </tr>
  </thead>
  <tbody>
-<?php 
+<?php
                                         $sql = mysqli_query ($koneksi,"select * from jaksa");
+                                         $No = 1;
                                         while ($data=mysqli_fetch_array($sql)) {
-                                        $No = 1;  
-                                
+
+
                                         ?>
                                     <tr>
                                      <td><?php echo $No++;?></td>
@@ -38,14 +36,12 @@ if (mysqli_connect_errno()){
                                         <td><?php echo $data["NIP"];?></td>
                                         <td><?php echo $data["Jabatan"];?></td>
                                         <td><?php echo $data["golongan"];?></td>
-                                        
-                                     
+
+
                                     </tr>
-                                     
+
 <?php } ?>
  </tbody>
  </table>
  <br>
  <input type ="button" class ="noPrint" value="cetak" onclick="window.print()">
-
-       

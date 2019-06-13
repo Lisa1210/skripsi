@@ -1,8 +1,5 @@
-<?php 
-$koneksi = mysqli_connect("localhost", "root","","Simkari");
-if (mysqli_connect_errno()){
-    echo "koneksi database gagal:".mysqli_connect_error();
-}
+<?php
+include "../../koneksi.php";
  ?>
 
  <style>
@@ -18,37 +15,36 @@ if (mysqli_connect_errno()){
 <thead>
 <tr>
   <th>No</th>
-                                            <th>id tersangka</th>
-                                            <th>Hasil Dinas</th>
-                                            <th>Setor</th>
-                                            <th>No_SSBP</th>
-                                            <th>Tanggal Setor</th>
-                                            <th>Amar Putusan </th> 
+  <th>Tersangka</th>
+  <th>Hasil Dinas</th>
+  <th>Setor</th>
+  <th>No_SSBP</th>
+  <th>Tanggal Setor</th>
+  <th>Amar Putusan </th>
 </tr>
  </thead>
  <tbody>
-<?php 
-                                        $sql = mysqli_query ($koneksi,"select * from hasil_dinas");
+<?php
+                                        $sql = mysqli_query ($koneksi,"select hasil_dinas.*, tersangka.nama_tersangka from hasil_dinas
+                                                                        LEFT JOIN tersangka ON hasil_dinas.id_tersangka = tersangka.id_tersangka");
+                                        $No = 1;
                                         while ($data=mysqli_fetch_array($sql)) {
-                                        $No = 1;  
-                                
+
+
                                         ?>
                                     <tr>
                                      <td><?php echo $No++;?></td>
-                                        <td><?php echo $data["id_tersangka"];?></td>
-                                        <td><?php echo $data["hasil_dinas"];?></td>
-                                        <td><?php echo $data["setor"];?></td>
-                                        <td><?php echo $data["no_ssbp"];?></td>
-                                        <td><?php echo $data["tanggal_setor"];?></td>
-                                        <td><?php echo $data["amar_putusan"];?></td>
-                                    
+                                     <td><?php echo $data["nama_tersangka"];?></td>
+                                     <td><?php echo $data["hasil_dinas"];?></td>
+                                     <td><?php echo $data["setor"];?></td>
+                                     <td><?php echo $data["no_ssbp"];?></td>
+                                     <td><?php echo $data["tanggal_setor"];?></td>
+                                     <td><?php echo $data["amar_putusan"];?></td>
                                     </tr>
-                                     
+
 <?php } ?>
 
  </tbody>
  </table>
  <br>
 <input type ="button" class ="noPrint" value="cetak" onclick="window.print()">
-
-       

@@ -1,8 +1,5 @@
-<?php 
-$koneksi = mysqli_connect("localhost", "root","","Simkari");
-if (mysqli_connect_errno()){
-    echo "koneksi database gagal:".mysqli_connect_error();
-}
+<?php
+include "../../koneksi.php";
  ?>
 
  <style>
@@ -19,32 +16,33 @@ if (mysqli_connect_errno()){
 <tr>
 
                                              <th>No</th>
-                                            <th>id tersangka</th>
-                                            <th> Penahanan Penyidik</th>
-                                            <th>Penahanan Kejari</th>
-                                            <th>Penahanan JPU</th>
-                                            <th>Penahanan MH</th>
-                                            <th>Penahanan PN </th>
+                                             <th>Tersangka</th>
+                                             <th>Penahanan Penyidik</th>
+                                             <th>Penahanan Kejari</th>
+                                             <th>Penahanan JPU</th>
+                                             <th>Penahanan MH</th>
+                                             <th>Penahanan PN </th>
 </tr>
  </thead>
  <tbody>
-<?php 
-                                        $sql = mysqli_query ($koneksi,"select * from Penahanan");
+<?php
+                                        $sql = mysqli_query ($koneksi,"select penahanan.*, tersangka.nama_tersangka from penahanan LEFT JOIN tersangka ON penahanan.id_tersangka = tersangka.id_tersangka");
+                                         $No = 1;
                                         while ($data=mysqli_fetch_array($sql)) {
-                                        $No = 1;  
-                                
+
+
                                         ?>
                                     <tr>
                                      <td><?php echo $No++;?></td>
-                                        <td><?php echo $data["id_tersangka"];?></td>
-                                        <td><?php echo $data["penahanan_penyidik"];?></td>
-                                        <td><?php echo $data["penahanan_kejari"];?></td>
-                                        <td><?php echo $data["penahanan_JPU"];?></td>
-                                        <td><?php echo $data["penahanan_MH"];?></td>
-                                        <td><?php echo $data["penahanan_PN"];?></td>
-                                    
+                                     <td><?php echo $data["nama_tersangka"];?></td>
+                                     <td><?php echo $data["penahanan_penyidik"];?></td>
+                                     <td><?php echo $data["penahanan_kejari"];?></td>
+                                     <td><?php echo $data["penahanan_JPU"];?></td>
+                                     <td><?php echo $data["penahanan_MH"];?></td>
+                                     <td><?php echo $data["penahanan_PN"];?></td>
+
                                     </tr>
-                                     
+
 <?php } ?>
 
 
@@ -52,5 +50,3 @@ if (mysqli_connect_errno()){
  </table>
  <br>
 <input type ="button" class ="noPrint" value="cetak" onclick="window.print()">
-
-       
