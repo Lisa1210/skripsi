@@ -49,8 +49,6 @@ if (isset($_GET['id'])) {
                 <option value="Jaksa Utama Pratama" <?php echo ($h['Jabatan']=='Jaksa Utama Pratama')?'selected':''; ?> >Jaksa Utama Pratama</option>
                  <option value="Jaksa Utama Madya" <?php echo ($h['Jabatan']=='Jaksa Utama Madya')?'selected':''; ?> >Jaksa Utama Madya</option>
                 <option value="Jaksa Utama" <?php echo ($h['Jabatan']=='Jaksa Utama')?'selected':''; ?> >Jaksa Utama</option>
-
-
             </select>
         </div>
        <div class="form-group">
